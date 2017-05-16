@@ -36,10 +36,10 @@ var firstAndPike = {
 };
 
 var seaTacAirport = {
-  location: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgPerSale: 6.3,
+  location: 'SeaTac Airport',
+  minCust: 3,
+  maxCust: 24,
+  avgPerSale: 1.2,
   tableName: 'seaTacAirport',
   projectedSales: [['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '],[],[],[]],
   dailyProjection: function(){
@@ -71,10 +71,10 @@ var seaTacAirport = {
 };
 
 var seattleCenter = {
-  location: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgPerSale: 6.3,
+  location: 'Seattle Center',
+  minCust: 11,
+  maxCust: 38,
+  avgPerSale: 3.7,
   tableName: 'seattleCenter',
   projectedSales: [['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '],[],[],[]],
   dailyProjection: function(){
@@ -106,10 +106,10 @@ var seattleCenter = {
 };
 
 var capitolHill = {
-  location: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgPerSale: 6.3,
+  location: 'Capitol Hill',
+  minCust: 20,
+  maxCust: 38,
+  avgPerSale: 2.3,
   tableName: 'capitolHill',
   projectedSales: [['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '],[],[],[]],
   dailyProjection: function(){
@@ -141,10 +141,10 @@ var capitolHill = {
 };
 
 var alki = {
-  location: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgPerSale: 6.3,
+  location: 'Alki',
+  minCust: 2,
+  maxCust: 16,
+  avgPerSale: 4.6,
   tableName: 'alki',
   projectedSales: [['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '],[],[],[]],
   dailyProjection: function(){

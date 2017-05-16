@@ -60,14 +60,14 @@ header{
 }
 .leftbar{
 	float: left;
-	height: 650px;
+	height: 660px;
 	width: 30px;
 }
 .rightbar{
 	float: left;
-	height: 650px;
+	height: 660px;
 	width: 30px;
-	margin-top: -40px;
+	margin-top: -60px;
 }
 main{
   width: 960px;
@@ -75,14 +75,14 @@ main{
 }
 main h3{
 	float: left;
-	dislay: inline;
-	width: 170px;
-	height: 30px;
-	padding: 5px;
+	dislay: inline-block;
+	width: 160px;
+	height: 40px;
+	padding: 10px;
 }
 main ul{
 	float: left;
   width: 170px;
-  height: 600px;
+  height: 590px;
   padding: 5px;
 }

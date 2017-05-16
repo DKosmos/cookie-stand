@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Pat's Salmon Cookies!</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <header></header>
     <main>
-      <h3>1st and Pike</h3>
+      <section class="leftbar"></section>
+      <h3>1st and Pike
+        <button onclick="firstAndPike.dailyProjection()">Reset Projection</button>
+      </h3>
+      <h3>SeaTac Airport
+        <button onclick="seaTacAirport.dailyProjection()">Reset Projection</button>
+      </h3>
+      <h3>Seattle Center
+        <button onclick="seattleCenter.dailyProjection()">Reset Projection</button>
+      </h3>
+      <h3>Capitol Hill
+        <button onclick="capitolHill.dailyProjection()">Reset Projection</button>
+      </h3>
+      <h3>Alki
+        <button onclick="alki.dailyProjection()">Reset Projection</button>
+      </h3>
       <ul id="firstAndPike"></ul>
-      <h3>SeaTac Airport</h3>
       <ul id="seaTacAirport"></ul>
-      <h3>Seattle Center</h3>
       <ul id="seattleCenter"></ul>
-      <h3>Capitol Hill</h3>
       <ul id="capitolHill"></ul>
-      <h3>Alki</h3>
       <ul id="alki"></ul>
+      <section class="rightbar"></section>
     </main>
     <script src="app.js"></script>
   </body>

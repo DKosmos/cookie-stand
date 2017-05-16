@@ -61,12 +61,12 @@ header{
 .leftbar{
 	float: left;
 	height: 660px;
-	width: 28px;
+	width: 8px;
 }
 .rightbar{
 	float: left;
 	height: 660px;
-	width: 28px;
+	width: 8px;
 }
 main{
   width: 1080px;
@@ -78,8 +78,13 @@ table{
 	height: 660px;
 	text-align: center;
 }
+table tr{
+	width: 64px;
+	height: 20px;
+}
 table td{
 	width: 64px;
+	height: 20px;
 	padding: 5px;
 }
 main h3{

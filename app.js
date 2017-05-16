@@ -6,33 +6,42 @@ function CookieStore(location,minCust,maxCust,avgPerSale,tableName) {
   this.maxCust = maxCust;
   this.avgPerSale = avgPerSale;
   this.tableName = tableName;
-  this.projectedSales = [['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'],[],[],[]];
+  this.projectedSales = [['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Total'],[],[],[]];
 }
 
 CookieStore.prototype.dailyProjection = function() {
   var numCust;
-  // random number between minCust and maxCust
-  for (var i=0; i<(this.projectedSales[0].length); i++){
+  // random number between minCust and maxCust and place in level 1 of array, then multiply by average cookies per sale and place value in level 2 of array
+  for (var i=0; i<(this.projectedSales[0].length - 1); i++){
     numCust = (Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust);
     this.projectedSales[1][i] = numCust;
     this.projectedSales[2][i] = (Math.floor((numCust * this.avgPerSale)));
-  } // calculate total for day
+  }
+   // calculate total for day
   var total = 0;
-  for (var j in this.projectedSales[1]){
+  for (var j=0; j<this.projectedSales[1].length;j++){
     total += this.projectedSales[2][j];
   }
-  j++;
-  this.projectedSales[2][j] = total; //puts total in last spot of array level 2
-  var container = document.getElementById(this.tableName);
-  //creates a li for each hour and puts it into array level 3
-  for (var k in this.projectedSales[0]){
-    this.projectedSales[3][k] = '<li>'+ this.projectedSales[0][k] + this.projectedSales[2][k] + ' cookies</li>';
+   //puts total in last spot of array level 2
+  this.projectedSales[2][j] = total;
+  // creates a tr for this store and gives it an id equal to the store's tableName attribute
+  var container = document.createElement('tr');
+  container.setAttribute('id', this.tableName);
+  //creates title for row
+  this.projectedSales[3][0] = this.location;
+  //creates a td for each hour and puts it into array level 3
+  var l = 1;
+  for (var k=0;k<this.projectedSales[1].length;k++){
+    this.projectedSales[3][l] = '<td>'+ this.projectedSales[2][k] + '</td>';
+    l++;
   }
-  k++;
-  //puts total in store table element
-  this.projectedSales[3][k] = '<li> Total: ' + this.projectedSales[2][k] + ' cookies</li>';
+  //puts total in
+  this.projectedSales[3][l] = '<td>' + this.projectedSales[2][k] + '</td>';
   //joins array level 3 as the html in store table element
   container.innerHTML = this.projectedSales[3].join('');
+  var table = document.getElementById('shell');
+  table.appendChild(container);
+  console.log(this.projectedSales);
   return this.projectedSales;
 };
 
@@ -53,6 +62,11 @@ var capitolHill = new CookieStore('Capitol Hill',20,38,2.3,'capitolHill');
 var alki = new CookieStore('Alki',2,16,4.6,'alki');
 
 firstAndPike.updatehourlyheader();
+firstAndPike.dailyProjection();
+seaTacAirport.dailyProjection();
+seattleCenter.dailyProjection();
+capitolHill.dailyProjection();
+alki.dailyProjection();
 
 // firstAndPike.dailyProjection();
 // seaTacAirport.dailyProjection();

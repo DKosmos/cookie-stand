@@ -46,7 +46,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+main{
+  width: 960px;
+  margin: 0px auto;
+  background-color: blue;
+}
 main ul{
+  float: left;
   width: 100px;
   height: 500px;
   background-color: mediumseagreen;

@@ -50,13 +50,58 @@ table {
 
 /* app level css */
 
-*{
-	outline: 2px orange dotted;
-}
 header{
-	width: 100%;
-	height: 100px;
+	position: fixed;
 	top:0;
+	width: 100%;
+	height: 150px;
+	background-color: #d3aa6b;
+}
+header div{
+  margin: 12px auto;
+  width: 1080px;
+  height: 125px;
+  text-align: center;
+  background-color: #f98f65;
+}
+header div div{
+  float: left;
+  margin: 0px;
+  width: 880px;
+}
+header img{
+  float: left;
+  width: 200px;
+  height: 125px;
+  margin-top: 10px 10px 10px 10px;
+}
+header h1{
+  padding-top: 15px;
+  font-size: 34px;
+  height: 45px;
+  background: #f98f65;
+}
+header ul{
+  margin: 0 60px;
+}
+header ul li{
+  float: left;
+  margin: 0 auto;
+  height: 30px;
+  width: 230px;
+  font-size: 24px;
+  font-color: black;
+  text-decoration: none;
+  padding: 10px 0px;
+  margin: 10px;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+header ul li:hover{
+  background: #599c5e;
+}
+body{
+  background-color: #602a14;
 }
 .leftbar{
 	float: left;
@@ -70,7 +115,26 @@ header{
 }
 main{
   width: 1080px;
-  margin: 0px auto;
+  margin: 150px auto 0px auto;
+}
+.center{
+  float: left;
+  width: 1044px;
+  height: 1080px;
+  background-color: #f98f65;
+  padding: 10px;
+}
+footer{
+  position: fixed;
+  background-color: black;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+  float: left;
+}
+.intro{
+  font-size: 20px;
+  text-align: justify;
 }
 table{
 	float: left;
@@ -81,11 +145,13 @@ table{
 table tr{
 	width: 64px;
 	height: 20px;
+	border: 1px solid black;
 }
 table td{
 	width: 64px;
 	height: 20px;
 	padding: 5px;
+	border: 1px solid black;
 }
 main h3{
 	float: left;
@@ -99,4 +165,23 @@ main ul{
   width: 170px;
   height: 590px;
   padding: 5px;
+}
+.heroimage{
+  margin: 10px 42px;
+}
+.center div{
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.primarycolor{
+  background-color: #d3aa6b;
+}
+.secondarycolor{
+  background-color: #f98f65;
+}
+.tertiarycolor{
+  background-color: #602a14;
 }

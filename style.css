@@ -96,14 +96,17 @@ footer{
 table{
 	float: left;
   font-size: 15px;
+	background: black;
+	color: white;
 	text-align: center;
 }
 table tr{
-	border: 1px solid black;
+	border: 1px solid grey;
+	padding: 5px;
 }
 table td{
 	padding: 5px;
-	border: 1px solid black;
+	border: 1px solid grey;
 }
 fieldset{
 	padding: 20px;

@@ -34,7 +34,10 @@ CookieStore.prototype.dailyProjection = function() {
   }
   //puts total in
   this.projectedSales[3][l] = '<td>' + this.projectedSales[2][k] + '</td>';
+  this.updateTableRow();
+};
   // creates a tr for this store and gives it an id equal to the store's tableName attribute
+CookieStore.prototype.updateTableRow = function() {
   if(document.getElementById(this.tableName) === null){
     var container = document.createElement('tr');
     container.setAttribute('id', this.tableName);

@@ -24,9 +24,6 @@ CookieStore.prototype.dailyProjection = function() {
   }
    //puts total in last spot of array level 2
   this.projectedSales[2][j] = total;
-  // creates a tr for this store and gives it an id equal to the store's tableName attribute
-  var container = document.createElement('tr');
-  container.setAttribute('id', this.tableName);
   //creates title for row
   this.projectedSales[3][0] = this.location;
   //creates a td for each hour and puts it into array level 3
@@ -37,10 +34,17 @@ CookieStore.prototype.dailyProjection = function() {
   }
   //puts total in
   this.projectedSales[3][l] = '<td>' + this.projectedSales[2][k] + '</td>';
-  //joins array level 3 as the html in store table element
-  container.innerHTML = this.projectedSales[3].join('');
-  var table = document.getElementById('shell');
-  table.appendChild(container);
+  // creates a tr for this store and gives it an id equal to the store's tableName attribute
+  if(document.getElementById(this.tableName) === null){
+    var container = document.createElement('tr');
+    container.setAttribute('id', this.tableName);
+    container.innerHTML = this.projectedSales[3].join('');
+    var table = document.getElementById('shell');
+    table.appendChild(container);
+  } else {
+    container = document.getElementById(this.tableName);
+    container.innerHTML = this.projectedSales[3].join('');
+  }
   console.log(this.projectedSales);
   return this.projectedSales;
 };
@@ -65,7 +69,7 @@ var storesArray = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki
 
 function makeButtons() {
   var shell = document.getElementById('shell');
-  for (var i=0; i<shell.children.length; i++){
+  for (var i=0; i<(shell.children.length - 1); i++){
     var rowName = storesArray[i].tableName + '.dailyProjection()';
     shell.children[i].setAttribute('onclick', rowName);
   }
@@ -101,3 +105,4 @@ function generateTotalsRow() {
 
 updateTable();
 generateTotalsRow();
+makeButtons();

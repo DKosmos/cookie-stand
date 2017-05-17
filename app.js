@@ -73,6 +73,8 @@ function makeButtons() {
     var rowName = storesArray[i].tableName + '.dailyProjection()';
     shell.children[i].setAttribute('onclick', rowName);
   }
+  shell = document.getElementById('totals');
+  shell.setAttribute('onclick', 'generateTotalsRow()');
 }
 
 function updateTable() {
@@ -96,8 +98,14 @@ function generateTotalsRow() {
     totalsRow.push(hourlyTotal);
     console.log(hourlyTotal);
   }
-  var container = document.createElement('tr');
-  container.innerHTML = totalsRow.join('');
+  if(document.getElementById('totals') === null){
+    var container = document.createElement('tr');
+    container.setAttribute('id', 'totals');
+    container.innerHTML = totalsRow.join('');
+  } else {
+    container = document.getElementById('totals');
+    container.innerHTML = totalsRow.join('');
+  }
   console.log(container);
   document.getElementById('shell').appendChild(container);
   return totalsRow;

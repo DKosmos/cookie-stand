@@ -22,7 +22,7 @@
     <main>
       <section class="leftbar"></section>
       <section class="center">
-        <div id="form">
+        <form id="form">
           <fieldset>
             <label for="storeLocation">Store Location:</label>
             <input type="text" name="storeLocation" placholder="Input store location here" required>
@@ -39,7 +39,12 @@
             <label for="maximumCustomers">Maximum Customers per Hour:</label>
             <input type="number" name="maximumCustomers" placeholder="max" required>
           </fieldset>
-          <button id="sumbit-new" type="sumbit">New Store</button>
+          <fieldset>
+            <label for="averagePerCust">Average Cookies per  Customer:</label>
+            <input type="number" name="averagePerCust" placeholder="avg" required>
+          </fieldset>
+          <button id="submit-new" type="submit">New Store</button>
+      </form>
         </div>
         <table>
           <thead id="tableHeader">

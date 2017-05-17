@@ -82,7 +82,7 @@ CookieStore.prototype.updatehourlyheader = function(){
 
 var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
 
-function updateTable(storeHours) {
+function updateTable() {
   var tableHeader = document.getElementById('tableHeader');
   var headerContent = ['<td></td>'];
   for (var i=0; i<storeHours.length; i++){
@@ -122,6 +122,28 @@ function generateTotalsRow() {
   return totalsRow;
 }
 
-updateTable(storeHours);
+var formElement = document.getElementById('form');
+
+function newStore(event){
+  event.preventDefault();
+
+  var storeLocation = event.target.storeLocation.value;
+  var tableName = event.target.tableName.value;
+  var minCust = event.target.minimumCustomers.value;
+  var maxCust = event.target.maximumCustomers.value;
+  var averagePerCust = event.target.averagePerCust.value;
+
+  console.log(storeLocation);
+
+  storesArray.push(new CookieStore(storeLocation, minCust, maxCust, averagePerCust, tableName));
+  console.log(storesArray);
+  updateTable();
+  generateTotalsRow();
+  makeButtons();
+  formElement.reset();
+}
+
+updateTable();
 generateTotalsRow();
 makeButtons();
+formElement.addEventListener('submit', newStore);

@@ -21,6 +21,25 @@
     <main>
       <section class="leftbar"></section>
       <section class="center">
+        <div id="form">
+          <fieldset>
+            <label for="storeLocation">Store Location:</label>
+            <input type="text" name="storeLocation" placholder="Input store location here" required>
+          </fieldset>
+          <fieldset>
+            <label for="tableName">Table Name:</label>
+            <input type="text" name="tableName" placholder="i.e. firstAndPike, seaTacAirport" required>
+          </fieldset>
+          <fieldset>
+            <label for="minimumCustomers">Minimum Customers per Hour:</label>
+            <input type="number" name="minimumCustomers" placeholder="min" required>
+          </fieldset>
+          <fieldset>
+            <label for="maximumCustomers">Maximum Customers per Hour:</label>
+            <input type="number" name="maximumCustomers" placeholder="max" required>
+          </fieldset>
+          <button id="sumbit-new" type="sumbit">New Store</button>
+        </div>
         <table>
           <thead id="tableHeader">
           </thead>

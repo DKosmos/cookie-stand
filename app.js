@@ -121,13 +121,12 @@ function newStore(event){
 
   var storeLocation = event.target.storeLocation.value;
   var tableName = event.target.tableName.value;
-  var minCust = event.target.minimumCustomers.value;
-  var maxCust = event.target.maximumCustomers.value;
-  var averagePerCust = event.target.averagePerCust.value;
+  var minCust = parseInt(event.target.minimumCustomers.value);
+  var maxCust = parseInt(event.target.maximumCustomers.value);
+  var averagePerCust = parseInt(event.target.averagePerCust.value);
 
-  console.log(storeLocation);
-
-  storesArray.push(new CookieStore(storeLocation, minCust, maxCust, averagePerCust, tableName));
+  //window[name] = new Thing() from stackoverflow = http://stackoverflow.com/questions/24716240/create-new-object-on-button-click
+  storesArray.push(window[tableName] = new CookieStore(storeLocation, minCust, maxCust, averagePerCust, tableName));
   console.log(storesArray);
   updateTable();
   generateTotalsRow();

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Pat's Salmon Cookies!</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -21,6 +22,30 @@
     <main>
       <section class="leftbar"></section>
       <section class="center">
+        <form id="form">
+          <fieldset>
+            <label for="storeLocation">Store Location:</label>
+            <input type="text" name="storeLocation" placholder="Input store location here" required>
+          </fieldset>
+          <fieldset>
+            <label for="tableName">Table Name:</label>
+            <input type="text" name="tableName" placholder="i.e. firstAndPike, seaTacAirport" required>
+          </fieldset>
+          <fieldset>
+            <label for="minimumCustomers">Minimum Customers per Hour:</label>
+            <input type="number" name="minimumCustomers" placeholder="min" required>
+          </fieldset>
+          <fieldset>
+            <label for="maximumCustomers">Maximum Customers per Hour:</label>
+            <input type="number" name="maximumCustomers" placeholder="max" required>
+          </fieldset>
+          <fieldset>
+            <label for="averagePerCust">Average Cookies per  Customer:</label>
+            <input type="number" name="averagePerCust" placeholder="avg" required>
+          </fieldset>
+          <button id="submit-new" type="submit">New Store</button>
+      </form>
+        </div>
         <table>
           <thead id="tableHeader">
           </thead>
@@ -28,26 +53,6 @@
           </tbody>
         </table>
       </section>
-      <!-- <h3>1st and Pike
-        <button onclick="firstAndPike.dailyProjection()">Reset Projection</button>
-      </h3>
-      <h3>SeaTac Airport
-        <button onclick="seaTacAirport.dailyProjection()">Reset Projection</button>
-      </h3>
-      <h3>Seattle Center
-        <button onclick="seattleCenter.dailyProjection()">Reset Projection</button>
-      </h3>
-      <h3>Capitol Hill
-        <button onclick="capitolHill.dailyProjection()">Reset Projection</button>
-      </h3>
-      <h3>Alki
-        <button onclick="alki.dailyProjection()">Reset Projection</button>
-      </h3> -->
-      <!-- <ul id="firstAndPike"></ul>
-      <ul id="seaTacAirport"></ul>
-      <ul id="seattleCenter"></ul>
-      <ul id="capitolHill"></ul>
-      <ul id="alki"></ul> -->
       <section class="rightbar"></section>
     </main>
     <script src="app.js"></script>

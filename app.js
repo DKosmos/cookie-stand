@@ -1,5 +1,6 @@
 'use strict';
 
+//CookieStore Constructor
 function CookieStore(location,minCust,maxCust,avgPerSale,tableName) {
   this.location = location;
   this.minCust = minCust;
@@ -9,6 +10,7 @@ function CookieStore(location,minCust,maxCust,avgPerSale,tableName) {
   this.projectedSales = [['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'],[],[],[]];
 }
 
+//CookieStore prototype methods
 CookieStore.prototype.dailyProjection = function() {
   var numCust;
   // random number between minCust and maxCust and place in level 1 of array, then multiply by average cookies per sale and place value in level 2 of array
@@ -52,6 +54,7 @@ CookieStore.prototype.updateTableRow = function() {
   return this.projectedSales;
 };
 
+//page level variables
 var firstAndPike = new CookieStore('1st and Pike',23,65,6.3,'firstAndPike');
 var seaTacAirport = new CookieStore('SeaTac Airport',3,24,1.2,'seaTacAirport');
 var seattleCenter = new CookieStore('Seattle Center',11,38,2.3,'seattleCenter');
@@ -59,7 +62,10 @@ var capitolHill = new CookieStore('Capitol Hill',20,38,2.3,'capitolHill');
 var alki = new CookieStore('Alki',2,16,4.6,'alki');
 
 var storesArray = [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
+var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
+var formElement = document.getElementById('form');
 
+//page level functions
 function makeButtons() {
   var shell = document.getElementById('shell');
   for (var i=0; i<(shell.children.length - 1); i++){
@@ -69,18 +75,6 @@ function makeButtons() {
   shell = document.getElementById('totals');
   shell.setAttribute('onclick', 'generateTotalsRow()');
 }
-
-CookieStore.prototype.updatehourlyheader = function(){
-  var tableHeader = document.getElementById('tableHeader');
-  var headerContent = ['<td></td>'];
-  for (var i=0;i<this.projectedSales[0].length;i++){
-    var j = i + 1;
-    headerContent[j] = '<td>' + this.projectedSales[0][i] + '</td>';
-  }
-  tableHeader.innerHTML = headerContent.join('');
-};
-
-var storeHours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
 
 function updateTable() {
   var tableHeader = document.getElementById('tableHeader');
@@ -122,20 +116,17 @@ function generateTotalsRow() {
   return totalsRow;
 }
 
-var formElement = document.getElementById('form');
-
 function newStore(event){
   event.preventDefault();
 
   var storeLocation = event.target.storeLocation.value;
   var tableName = event.target.tableName.value;
-  var minCust = event.target.minimumCustomers.value;
-  var maxCust = event.target.maximumCustomers.value;
-  var averagePerCust = event.target.averagePerCust.value;
+  var minCust = parseInt(event.target.minimumCustomers.value);
+  var maxCust = parseInt(event.target.maximumCustomers.value);
+  var averagePerCust = parseInt(event.target.averagePerCust.value);
 
-  console.log(storeLocation);
-
-  storesArray.push(new CookieStore(storeLocation, minCust, maxCust, averagePerCust, tableName));
+  //window[name] = new Thing() from stackoverflow = http://stackoverflow.com/questions/24716240/create-new-object-on-button-click
+  storesArray.push(window[tableName] = new CookieStore(storeLocation, minCust, maxCust, averagePerCust, tableName));
   console.log(storesArray);
   updateTable();
   generateTotalsRow();
@@ -143,6 +134,7 @@ function newStore(event){
   formElement.reset();
 }
 
+//intial page setup
 updateTable();
 generateTotalsRow();
 makeButtons();
